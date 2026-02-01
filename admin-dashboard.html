@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - Trupti Agarbatti</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Lato:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body class="admin-body">
+
+    <div id="dashboard">
+        <header class="admin-header">
+            <h3>Trupti Agarbatti Admin</h3>
+            <button id="logoutBtn" class="filter-btn"
+                style="border-color: var(--accent-gold); color: var(--accent-gold);">Logout</button>
+        </header>
+
+        <div class="container admin-container">
+
+            <!-- Add Product -->
+            <div class="admin-card">
+                <h3 style="margin-bottom: 1.5rem; color: var(--primary-maroon);">Add New Product</h3>
+                <form id="addProductForm" class="admin-form">
+                    <div class="form-group">
+                        <label>Product Name</label>
+                        <input type="text" id="pName" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Category</label>
+                        <select id="pCategory">
+                            <option value="Premium">Premium</option>
+                            <option value="Floral">Floral</option>
+                            <option value="Traditional">Traditional</option>
+                        </select>
+                    </div>
+
+                    <!-- Image Upload Section -->
+                    <div class="form-group full-width">
+                        <label>Product Image</label>
+                        <div style="background: #f9f9f9; padding: 15px; border: 1px dashed #ccc; border-radius: 5px;">
+                            <label style="display: block; margin-bottom: 10px; font-weight: bold;">Option 1: Upload from
+                                Device</label>
+                            <input type="file" id="pImageFile" accept="image/*">
+
+                            <p style="text-align: center; margin: 10px 0; color: #999;">- OR -</p>
+
+                            <label style="display: block; margin-bottom: 5px; font-weight: bold;">Option 2: Paste Image
+                                URL</label>
+                            <input type="url" id="pImage" placeholder="https://example.com/image.jpg">
+                        </div>
+                    </div>
+
+                    <div class="form-group full-width">
+                        <label>Description</label>
+                        <textarea id="pDesc" rows="3" required></textarea>
+                    </div>
+
+                    <button type="submit" class="submit-btn full-width" id="addBtn">Add Product</button>
+                    <p id="uploadStatus" style="text-align: center; margin-top: 10px; color: #666;"></p>
+                </form>
+            </div>
+
+            <!-- Product List -->
+            <div class="admin-card">
+                <h3 style="margin-bottom: 1rem; color: var(--primary-maroon);">Product List</h3>
+                <div style="overflow-x: auto;">
+                    <table class="product-table">
+                        <thead>
+                            <tr>
+                                <th>Image</th>
+                                <th>Name</th>
+                                <th>Category</th>
+                                <th>Description</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody id="productTableBody">
+                            <!-- Populated by JS -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Firebase SDKs (Compat) -->
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-storage-compat.js"></script>
+
+    <!-- Local Config & Scripts -->
+    <script src="firebase-config.js"></script>
+    <script src="products.js"></script>
+    <script src="admin.js"></script>
+</body>
+
+</html>

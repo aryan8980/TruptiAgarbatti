@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Disallow: /admin.html
+Disallow: /admin-dashboard.html
+Disallow: /firebase-config.js
+
+Sitemap: https://truptiagarbatti.com/sitemap.xml
